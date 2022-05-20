@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nhnacademy.jdbc.board.boardcontent.mapper.BoardContentMapper">
+    <insert id="registerBoardContent">
+        insert into BoardContent(contentSerialNumber, title, classNumber, content, file, writeTime, like, replyLimit,
+                                 rollBack, id)
+        values (#{contentSerialNumber}, #{title}, #{classNumber}, #{content}, #{file}, #{writeTime}, #{like},
+                #{replyLimit}, #{rollBack}, #{id})
+    </insert>
+
+    <update id="uploadFile">
+        update BoardContent
+        set file=#{file}
+        where id = #{id}
+    </update>
+
+    <update id="modifyBoardContent">
+        update BoardContent
+        set content=#{content}
+        where id = #{id}
+    </update>
+
+    <update id="rollBackBoardContentByAdmin">
+        update BoardContent
+        set rollBack=1
+        where id = #{id}
+    </update>
+
+    <update id="upLike">
+        update BoardContent
+        set liked=liked + 1
+        where id = #{id}
+    </update>
+
+    <update id="downLike">
+        update BoardContent
+        set liked=liked - 1
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBoardContentByAdmin">
+        delete
+        from BoardContent
+        where contentSerialNumber = #{contentSerialNumber}
+    </delete>
+
+    <delete id="deleteBoardContentByWriter">
+        delete
+        from BoardContent
+        where contentSerialNumber = #{contentSerialNumber}
+          and id = #{id}
+    </delete>
+
+
+    <select id="getBoardContents" resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
+        select *
+        from BoardContent
+    </select>
+    <select id="getBoardContent" resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
+        select *
+        from BoardContent
+        where id = #{id}
+    </select>
+</mapper>

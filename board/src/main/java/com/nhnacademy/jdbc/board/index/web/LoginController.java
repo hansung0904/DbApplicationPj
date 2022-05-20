@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -26,16 +27,18 @@ public class LoginController {
     }
 
     @GetMapping(value = {"/", "/index.nhn"})
-    public String login(@CookieValue(value = "SESSION", required = false) String session,
+    public String test(@CookieValue(value = "SESSION", required = false) String session,
                         Model model) {
 
-        List<User> user = userMapper.selectUsers();
+        Optional<User> user = userMapper.selectUser("admin");
+        model.addAttribute("user", user);
+        System.out.println(user);
 
-        if(!user.isEmpty()){
-            log.debug("student : {}", user.toString());
-        }
+//        if(!user.isEmpty()){
+//            log.debug("student : {}", user.toString());
+//        }
 
-        return "index/loginSuccess";
+        return "index/main";
 
 //        if (StringUtils.hasText(session)) {
 //            model.addAttribute("id", session);
@@ -43,6 +46,21 @@ public class LoginController {
 //        } else {
 //            return "loginForm";
 //        }
+    }
+
+    @GetMapping(value = {"/login"})
+    public String login(@CookieValue(value = "SESSION", required = false) String session,
+                        Model model) {
+        return "index/loginForm";
+
+    }
+
+    @PostMapping(value = {"/doLogin"})
+    public String doLogin(@CookieValue(value = "SESSION", required = false) String session, Model model){
+        Optional<User> user = userMapper.selectUser("admin");
+        model.addAttribute("user", user);
+        System.out.println(user);
+        return "index/loginSuccess";
     }
 
 }

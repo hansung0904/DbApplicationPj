@@ -4,6 +4,8 @@
     <title>Login Success</title>
 </head>
 <body>
-    Login Success: id=${id}
+
+login success<br>
+${user}
 </body>
 </html>
