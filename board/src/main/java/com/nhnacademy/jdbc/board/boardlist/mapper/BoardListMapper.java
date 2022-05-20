@@ -1,9 +1,12 @@
 package com.nhnacademy.jdbc.board.boardlist.mapper;
 
 import com.nhnacademy.jdbc.board.boardlist.domain.BoardList;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 
+@Repository("boardListMapper")
 public interface BoardListMapper {
     // 전체 조회
     List<BoardList> getBoardLists();

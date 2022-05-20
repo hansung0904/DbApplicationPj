@@ -20,12 +20,12 @@ public class IndexController {
         this.studentService = studentService;
     }
 
-    @GetMapping(value = {"/","/index.nhn"})
-    public String index(){
-        Optional<Student> student = studentService.getStudent(1l);
-        if(student.isPresent()){
-            log.debug("student : {}",student.get());
-        }
-        return "index/index";
-    }
+//    @GetMapping(value = {"/","/index.nhn"})
+//    public String index(){
+//        Optional<Student> student = studentService.getStudent(1l);
+//        if(student.isPresent()){
+//            log.debug("student : {}",student.get());
+//        }
+//        return "index/index";
+//    }
 }

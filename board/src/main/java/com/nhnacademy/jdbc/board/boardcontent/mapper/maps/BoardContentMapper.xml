@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.nhnacademy.jdbc.board.boardContent.mapper.BoardContentMapper">
+<mapper namespace="com.nhnacademy.jdbc.board.boardcontent.mapper.BoardContentMapper">
     <insert id="registerBoardContent">
         insert into BoardContent(contentSerialNumber, title, classNumber, content, file, writeTime, like, replyLimit,
                                  rollBack, id)
@@ -55,11 +55,11 @@
     </delete>
 
 
-    <select id="getBoardContents" resultType="com.nhnacademy.jdbc.board.boardContent.domain.BoardContent">
+    <select id="getBoardContents" resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
         select *
         from BoardContent
     </select>
-    <select id="getBoardContent" resultType="com.nhnacademy.jdbc.board.boardContent.domain.BoardContent">
+    <select id="getBoardContent" resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
         select *
         from BoardContent
         where id = #{id}

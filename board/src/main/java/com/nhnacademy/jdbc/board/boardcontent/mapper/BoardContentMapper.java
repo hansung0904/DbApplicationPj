@@ -1,10 +1,12 @@
-package com.nhnacademy.jdbc.board.boardContent.mapper;
+package com.nhnacademy.jdbc.board.boardcontent.mapper;
 
-import com.nhnacademy.jdbc.board.boardContent.domain.BoardContent;
+import com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository("boardContentMapper")
 public interface BoardContentMapper {
 
     // 전체 조회

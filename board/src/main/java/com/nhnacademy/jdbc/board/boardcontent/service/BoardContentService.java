@@ -1,6 +1,7 @@
-package com.nhnacademy.jdbc.board.boardContent.service;
+package com.nhnacademy.jdbc.board.boardcontent.service;
 
-import com.nhnacademy.jdbc.board.boardContent.domain.BoardContent;
+import com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent;
+import com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,18 +1,21 @@
-package com.nhnacademy.jdbc.board.boardContent.service.impl;
+package com.nhnacademy.jdbc.board.boardcontent.service.impl;
 
-import com.nhnacademy.jdbc.board.boardContent.domain.BoardContent;
-import com.nhnacademy.jdbc.board.boardContent.mapper.BoardContentMapper;
-import com.nhnacademy.jdbc.board.boardContent.service.BoardContentService;
+import com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent;
+import com.nhnacademy.jdbc.board.boardcontent.mapper.BoardContentMapper;
+import com.nhnacademy.jdbc.board.boardcontent.service.BoardContentService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class DefaultBoardContentService implements BoardContentService {
     private final BoardContentMapper boardContentMapper;
 
     public DefaultBoardContentService(BoardContentMapper boardContentMapper) {
         this.boardContentMapper = boardContentMapper;
     }
+
 
     @Override
     public List<BoardContent> getBoardContents() {
@@ -21,18 +24,17 @@ public class DefaultBoardContentService implements BoardContentService {
 
     @Override
     public Optional<BoardContent> getBoardContent(String id) {
-
         return boardContentMapper.getBoardContent(id);
-    }
-
-    @Override
-    public int registerBoardContent(BoardContent boardContent) {
-        return boardContentMapper.registerBoardContent(boardContent);
     }
 
     @Override
     public int modifyBoardContent(BoardContent boardContent) {
         return boardContentMapper.modifyBoardContent(boardContent);
+    }
+
+    @Override
+    public int registerBoardContent(BoardContent boardContent) {
+        return boardContentMapper.registerBoardContent(boardContent);
     }
 
     @Override

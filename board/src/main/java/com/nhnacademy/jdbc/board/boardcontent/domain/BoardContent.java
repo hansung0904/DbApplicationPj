@@ -1,4 +1,4 @@
-package com.nhnacademy.jdbc.board.boardContent.domain;
+package com.nhnacademy.jdbc.board.boardcontent.domain;
 
 import java.time.LocalDateTime;
 
