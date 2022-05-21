@@ -5,12 +5,12 @@ import com.nhnacademy.jdbc.board.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @Controller
@@ -24,26 +24,28 @@ public class LoginController {
         this.userService = userService;
     }
 
-
     @GetMapping(value = {"/login"})
-    public String login(@CookieValue(value = "SESSION", required = false) String session,
-                        Model model) {
-        //        if (StringUtils.hasText(session)) {
-//            model.addAttribute("id", session);
-//            return "loginSuccess";
-//        } else {
-//            return "loginForm";
-//        }
+    public String login(){
         return "index/loginForm";
-
     }
 
-    @PostMapping(value = {"/doLogin"})
-    public String doLogin(@CookieValue(value = "SESSION", required = false) String session, HttpServletRequest request){
-        Optional<User> user = userService.getUser("admin");
-        request.setAttribute("user", user);
-        System.out.println(user);
-        return "index/loginSuccess";
+
+    @PostMapping(value = {"/login"})
+    public String doLogin(@RequestParam("uname") String id,
+                          @RequestParam("psw") String password,
+                          HttpServletRequest request,
+                          HttpServletResponse response){
+
+        if(userService.checkUser(id, password)){
+            HttpSession session = request.getSession(true);
+
+            Cookie cookie = new Cookie("SESSION", session.getId());
+            response.addCookie(cookie);
+
+            return "index/loginSuccess";
+        }else{
+            return "index/longinForm";
+        }
     }
 
 }

@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface UserService {
     Optional<User> getUser(String id);
     List<User> getUsers();
-    User checkUser(String id, String password);
+    boolean checkUser(String id, String password);
+
 }

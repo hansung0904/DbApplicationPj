@@ -27,6 +27,6 @@ public class IndexController {
         if(student.isPresent()){
             log.debug("student : {}",student.get());
         }
-        return "index/index";
+        return "index/mainForm";
     }
 }

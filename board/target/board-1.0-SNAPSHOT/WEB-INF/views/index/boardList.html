@@ -153,6 +153,76 @@
                 width: 100%;
             }
         }
+
+        a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+        }
+
+        a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .previous {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .next {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+
+        .btn {
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Green */
+        .success {
+            border-color: #04AA6D;
+            color: green;
+        }
+
+        .success:hover {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+
+        /* Orange */
+        .warning {
+            border-color: #ff9800;
+            color: orange;
+        }
+
+        .warning:hover {
+            background: #ff9800;
+            color: white;
+        }
+
+        /* Red */
+        .danger {
+            border-color: #f44336;
+            color: red
+        }
+
+        .danger:hover {
+            background: #f44336;
+            color: white;
+        }
+
     </style>
     </style>
 </head>
@@ -177,11 +247,28 @@
     </nav>
 
     <article>
+        <button class="btn success" onclick="location.href='/boardWrite'">Write</button>
+        <table>
+            <tr>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>
+                    <button class="btn warning" onclick="location.href='/boardModify' ">Modify</button>
+                    <button class="btn danger" onclick="location.href='/boardDelete'">Delete</button>
+                </td>
 
-        <div class="logo">
-            <a href="https://www.nhnacademy.com/"><img src="image/academy_top_logo-removebg-preview.png" alt="NHN Academy" title="NHN Academy"
-                                                       style="max-width: 100%; height: auto;"></a>
-        </div>
+
+
+            </tr>
+        </table>
+
+        <a href="#" class="previous round">&#8249;</a>
+        <a href="#" class="next round">&#8250;</a>
     </article>
 </section>
 

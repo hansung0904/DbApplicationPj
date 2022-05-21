@@ -177,11 +177,13 @@
     </nav>
 
     <article>
+        <form method="post" action="/boardWrite">
+            제목: <input type="text" name="title" /><br />
+            <textarea name="content" rows="10" cols="80"></textarea><br />
 
-        <div class="logo">
-            <a href="https://www.nhnacademy.com/"><img src="image/academy_top_logo-removebg-preview.png" alt="NHN Academy" title="NHN Academy"
-                                                       style="max-width: 100%; height: auto;"></a>
-        </div>
+            <input type="submit" />
+        </form>
+
     </article>
 </section>
 

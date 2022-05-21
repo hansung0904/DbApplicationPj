@@ -27,7 +27,13 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public User checkUser(String id, String password) {
-        return userMapper.checkUser(id, password);
+    public boolean checkUser(String id, String password) {
+
+        if (userMapper.getUserId(id).equals(id) && userMapper.getUserPassword(id).equals(id)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

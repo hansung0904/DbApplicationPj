@@ -13,6 +13,10 @@ public interface UserMapper {
 
     List<User> selectUsers();
 
+    String getUserId(String id);
+
+    String getUserPassword(String id);
+
     User checkUser(String id, String password);
 
 

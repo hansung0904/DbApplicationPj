@@ -20,5 +20,15 @@
         from user
         where id = #{id} and password = #{password}
     </select>
+    <select id="getUserId" resultType="java.lang.String">
+        select id
+        from user
+        where id = #{id}
+    </select>
+    <select id="getUserPassword" resultType="java.lang.String">
+        select password
+        from user
+        where id = #{id}
+    </select>
 
 </mapper>
