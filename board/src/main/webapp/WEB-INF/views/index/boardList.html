@@ -270,8 +270,11 @@
                 <td th:text="${boardContent.writeTime}"/>
                 <td th:text="${boardContent.liked}"/>
                 <td>
-                    <button class="btn warning" onclick="location.href='/boardModify/num?serialNum='${boardContent.contentSerialNumber}">Modify</button>
-                    <button class="btn danger" onclick="location.href='/boardDelete/num?serialNum='${boardContent.contentSerialNumber}">Delete</button>
+<!--                    <button class="btn warning" th:action="@{/boardModify/{num}(num=${boardContent.contentSerialNumber})}"> Modify </button>-->
+<!--                    <button class="btn danger" onclick="location.href='/boardDelete/num?serialNum='${boardContent.contentSerialNumber}">Delete</button>-->
+
+                    <a th:href="@{/boardModify/modify/{num}(num = ${boardContent.contentSerialNumber})}">Modify</a>
+                    <a th:href="@{/boardDelete/delete/{num}(num = ${boardContent.contentSerialNumber})}">Delete</a>
                 </td>
             </tr>
             </tbody>

@@ -6,15 +6,15 @@ import com.nhnacademy.jdbc.board.boardlist.service.BoardListService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -38,20 +38,35 @@ public class BoardController {
         return "index/boardList";
     }
 
-    @GetMapping("/boardModify/num")
-    public String modifyBoardContent(@RequestParam int serialNum,
+    @GetMapping("/boardModify/modify/{contentSerialNumber}")
+    public String modifyBoardContent(@PathVariable int contentSerialNumber,
                                      Model model){
-        model.addAttribute("boardContentSerialNum", serialNum);
+        System.out.println(contentSerialNumber);
+        model.addAttribute("boardContentSerialNum", contentSerialNumber);
         return "index/boardModify";
     }
 
-    @PostMapping("/boardModify")
-    public String modifyBoardContent(@RequestParam("uname") String id,
-                                     @RequestParam("psw") String password,
+    @PostMapping("/boardModify/modify/{contentSerialNumber}")
+    public String modifyBoardContent(@RequestParam("title") String title,
+                                     @RequestParam("content") String content,
                                      Model model){
-        BoardContent boardContent = new BoardContent();
+        // public BoardContent(int contentSerialNumber, String title, int classNumber, String content, String file, LocalDateTime writeTime, int liked, int replyLimit, int rollBack, String id) {
+        //
+        BoardContent boardContent = new BoardContent(1, title, 0, content, null, new Timestamp(new Date().getTime()), 1, 0, 0, "admin" );
         boardContentService.modifyBoardContent(boardContent);
-        return "index/boardList";
+        return "index/boardModify";
+    }
+
+    @GetMapping("/boardDelete/delete/{contentSerialNumber}")
+    public String deleteBoardContent(@PathVariable int contentSerialNumber,
+                                     HttpSession session,
+                                     Model model){
+
+        System.out.println("====" + model.getAttribute("user"));
+        System.out.println("=========" + session.getAttribute("user"));
+        
+        boardContentService.deleteBoardContentByWriter(contentSerialNumber, "A" );
+        return "index/boardModify";
     }
 
     // 보드 글 작성
