@@ -27,13 +27,15 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public boolean checkUser(String id, String password) {
+    public Optional<User> checkUser(String id, String password) {
 
-        if (userMapper.getUserId(id).equals(id) && userMapper.getUserPassword(id).equals(id)) {
-            return true;
+        Optional<User> user = userMapper.selectUser(id);
+
+        if (user.get().getId().equals(id) && user.get().getPassword().equals(password)) {
+            return user;
         }
         else {
-            return false;
+            return Optional.empty();
         }
     }
 }

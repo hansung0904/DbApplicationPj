@@ -1,5 +1,10 @@
 package com.nhnacademy.jdbc.board.user.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class User {
 
     private final String id;
@@ -10,11 +15,4 @@ public class User {
         this.password = password;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
 }

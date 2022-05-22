@@ -51,9 +51,10 @@
 
         article {
             float: right;
-            padding-left: 0px;
-            width: 70%;
-            background-color: white;
+
+            padding: 20px;
+            width: 89%;
+            background-color: #f1f1f1;
             height: 300px; /* only for demonstration, should be removed */
         }
 
@@ -62,6 +63,14 @@
             content: "";
             display: table;
             clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: auto;
+            text-align: center;
+            color: white;
         }
 
         /* 로그인 폼 css */
@@ -74,7 +83,7 @@
 
         /* Bordered form */
         form {
-            border: 3px solid white;
+            border: 3px solid #f1f1f1;
         }
 
         /* Full-width inputs */
@@ -153,11 +162,15 @@
 </header>
 
 <section>
-    </span>
-
-
     <nav>
         <ul>
+            <h1>
+                <div class="logo">
+                    <a href="/"><img src="image/academy_top_logo-removebg-preview.png" alt="NHN Academy"
+                                     title="NHN Academy"
+                                     style="max-width: 100%; height: auto;"></a>
+                </div>
+            </h1>
             <li><a href="/login" style="color: white">Login</a></li>
             <li><a href="/boardList" style="color: white">BoardList</a></li>
             <li><a href="/boardWrite" style="color: white">Board</a></li>
@@ -165,18 +178,23 @@
     </nav>
 
     <article>
-        <span th:text="${session.user.getId()}"> userid </span> 님 환영합니다
+        <form method="post" action="/boardModify">
+            <b>제목</b>
+            <input type="text" placeholder="title" name="title" required>
 
-        <div class="logo">
-            <a href="https://www.nhnacademy.com/"><img src="src/main/webapp/image/academy_top_logo-removebg-preview.png"
-                                                       title="NHN Academy"
-                                                       style="max-width: 100%; height: auto;"/></a>
-        </div>
+            <b>내용</b>
+            <input type="text" placeholder="content" name="content" required>
 
+            <button type="submit">Modify</button>
+
+        </form>
 
     </article>
 </section>
 
+<!-- <footer>
+  <p>Footer</p>
+</footer> -->
 
 </body>
 </html>

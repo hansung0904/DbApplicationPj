@@ -11,6 +11,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.rmi.MarshalledObject;
 import java.util.Optional;
 
 @Controller
@@ -25,27 +26,26 @@ public class LoginController {
     }
 
     @GetMapping(value = {"/login"})
-    public String login(){
+    public String login() {
         return "index/loginForm";
     }
-
 
     @PostMapping(value = {"/login"})
     public String doLogin(@RequestParam("uname") String id,
                           @RequestParam("psw") String password,
-                          HttpServletRequest request,
-                          HttpServletResponse response){
+                          HttpSession session,
+                          Model model){
 
-        if(userService.checkUser(id, password)){
-            HttpSession session = request.getSession(true);
-
-            Cookie cookie = new Cookie("SESSION", session.getId());
-            response.addCookie(cookie);
+        Optional<User> user = userService.checkUser(id, password);
+        if (!user.isEmpty()) {
+            session.setAttribute("user", user.get());
+            model.addAttribute("user", user.get());
 
             return "index/loginSuccess";
-        }else{
-            return "index/longinForm";
+        } else {
+            return "index/loginForm";
         }
+
     }
 
 }

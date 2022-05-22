@@ -1,7 +1,11 @@
 package com.nhnacademy.jdbc.board.boardcontent.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
+@Getter @Setter
 public class BoardContent {
     private final int contentSerialNumber;
     private final String title;
@@ -14,47 +18,6 @@ public class BoardContent {
 
     private final int rollBack;
     private final String id;
-
-    public int getContentSerialNumber() {
-        return contentSerialNumber;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public int getClassNumber() {
-        return classNumber;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public LocalDateTime getWriteTime() {
-        return writeTime;
-    }
-
-    public int getLike() {
-        return liked;
-    }
-
-    public int getReplyLimit() {
-        return replyLimit;
-    }
-
-    public int getRollBack() {
-        return rollBack;
-    }
-
-    public String getId() {
-        return id;
-    }
-
 
     public BoardContent(int contentSerialNumber, String title, int classNumber, String content, String file, LocalDateTime writeTime, int liked, int replyLimit, int rollBack, String id) {
         this.contentSerialNumber = contentSerialNumber;
