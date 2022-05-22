@@ -40,7 +40,7 @@ public class BoardController {
     }
 
     // 보드 글 제목으로 검색
-    @GetMapping(value = {"/boardList"})
+    @PostMapping(value = {"/boardListByTitle"})
     public String showBoardListByTitle(@RequestParam("title") String title, Model model) {
         List<BoardContent> boardContentList = boardContentService.getBoardContentsByTitle(title);
         model.addAttribute("boardContentList", boardContentList);
@@ -94,10 +94,8 @@ public class BoardController {
 
 
     //보드 글 작성
-    @GetMapping("/boardWrite/write/{contentSerialNumber}")
-    public String writeBoardContent(@PathVariable int contentSerialNumber,
-                                    HttpSession session,
-                                    Model model) {
+    @GetMapping("/boardWrite")
+    public String writeBoardContent(HttpSession session) {
 
         User user = (User) session.getAttribute("user");
         if (user.getId().equals("admin")) {
@@ -107,7 +105,7 @@ public class BoardController {
     }
 
     // 보드 글 작성
-    @PostMapping("/boardWrite/write/{contentSerialNumber}")
+    @PostMapping("/boardWrite")
     public String writeBoardContent(@RequestParam("title") String title,
                                     @RequestParam("content") String content,
                                     HttpSession session,
