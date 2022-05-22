@@ -11,37 +11,34 @@ public interface BoardContentService {
     // 전체 조회
     List<BoardContent> getBoardContents();
 
-    // 글 1개 조회
-    Optional<BoardContent> getBoardContent(String id);
+    // 글 제목으로 조회
+    List<BoardContent> getBoardContentsByTitle(String title);
 
-    // 등록
-    int registerBoardContent(BoardContent boardContent);
+    //글 작성자 수정
+    int modifyBoardContentByUser(String id, BoardContent boardContent);
 
-    // 수정
-    int modifyBoardContent(BoardContent boardContent);
+    // 글 작성자 삭제
+    int deleteBoardContentByUser(String id, int contentSerialNumber);
 
-    // 삭제 - 관리자
-    int deleteBoardContentByAdmin(int contentSerialNumber);
+    // 글 관리자 삭제
+    int deleteBoardContentByAdmin(String id, int contentSerialNumber);
 
-    // 삭제 - 글 작성자
-    int deleteBoardContentByWriter(int contentSerialNumber, String id);
+    // 글 작성
+    int writeBoardContent( BoardContent boardContent);
 
+    // 조회 20개 paging
+    List<BoardContent> getBoardContentsPaging();
 
-    // 복구
-    int rollBackBoardContentByAdmin(int contentSerialNumber);
+    // 복구 관리자
+    int rollBackBoardContentByAdmin(String id, int contentSerialNumber);
 
-    // 파일
-    // FIXME
-    int uploadFile(String id);
+    // 좋아요 등록
+    public int upLike(String id, int contentSerialNumber);
 
-    // 좋아요 - 누르기
-    int upLike(String id);
-
-    // 좋아요 - 취소
-    int downLike(String id);
+    // 좋아요 취소
+    public int downLike(String id, int contentSerialNumber);
 
     // 댓글
-    // FIXME
-
+    // fixme
 
 }

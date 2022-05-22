@@ -16,54 +16,55 @@ public class DefaultBoardContentService implements BoardContentService {
         this.boardContentMapper = boardContentMapper;
     }
 
-
     @Override
     public List<BoardContent> getBoardContents() {
         return boardContentMapper.getBoardContents();
     }
 
     @Override
-    public Optional<BoardContent> getBoardContent(String id) {
-        return boardContentMapper.getBoardContent(id);
+    public List<BoardContent> getBoardContentsByTitle(String title) {
+        return boardContentMapper.getBoardContentsByTitle(title);
     }
 
     @Override
-    public int modifyBoardContent(BoardContent boardContent) {
-        return boardContentMapper.modifyBoardContent(boardContent);
+    public int modifyBoardContentByUser(String id, BoardContent boardContent) {
+        return boardContentMapper.modifyBoardContentByUser(id, boardContent);
     }
 
     @Override
-    public int registerBoardContent(BoardContent boardContent) {
-        return boardContentMapper.registerBoardContent(boardContent);
+    public int deleteBoardContentByUser(String id, int contentSerialNumber) {
+        return boardContentMapper.deleteBoardContentByUser(id, contentSerialNumber);
     }
 
     @Override
-    public int deleteBoardContentByAdmin(int contentSerialNumber) {
-        return boardContentMapper.deleteBoardContentByAdmin(contentSerialNumber);
+    public int deleteBoardContentByAdmin(String id, int contentSerialNumber) {
+        return boardContentMapper.deleteBoardContentByAdmin(id, contentSerialNumber);
     }
 
     @Override
-    public int deleteBoardContentByWriter(int contentSerialNumber, String id) {
-        return boardContentMapper.deleteBoardContentByWriter(contentSerialNumber,id);
+    public int writeBoardContent(BoardContent boardContent) {
+        return boardContentMapper.writeBoardContent(boardContent);
     }
 
     @Override
-    public int rollBackBoardContentByAdmin(int contentSerialNumber) {
-        return boardContentMapper.rollBackBoardContentByAdmin(contentSerialNumber);
+    public List<BoardContent> getBoardContentsPaging() {
+        return boardContentMapper.getBoardContentsPaging();
     }
 
     @Override
-    public int uploadFile(String id) {
-        return 0;
+    public int rollBackBoardContentByAdmin(String id, int contentSerialNumber) {
+        return boardContentMapper.rollBackBoardContentByAdmin(id, contentSerialNumber);
     }
 
     @Override
-    public int upLike(String id) {
-        return boardContentMapper.upLike(id);
+    public int upLike(String id, int contentSerialNumber) {
+        return boardContentMapper.upLike(id, contentSerialNumber);
     }
 
     @Override
-    public int downLike(String id) {
-        return boardContentMapper.downLike(id);
+    public int downLike(String id, int contentSerialNumber) {
+        return boardContentMapper.downLike(id, contentSerialNumber);
     }
+
+
 }
