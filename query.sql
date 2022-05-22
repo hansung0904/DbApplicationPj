@@ -41,64 +41,64 @@ CREATE TABLE IF NOT EXISTS `boardContent` (
 ENGINE = InnoDB;
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(1,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0, 5, 'admin' );
+ values(1,'test title 1', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0, 5, 'admin' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(2,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0,0, 5, 'admin' );
+ values(2,'test1 title 2', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0,0, 5, 'admin' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(3,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0,0, 5, 'admin' );
+ values(3,'test1 title 3', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0,0, 5, 'admin' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(4,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'admin' );
+ values(4,'test1 title 4', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'admin' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(5,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'admin' );
+ values(5,'test1 title 5', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'admin' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(6,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 3, 0,5, 'asd' );
+ values(6,'test1 title 6', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 3, 0,5, 'asd' );
  
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(7,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 5, 0,5, 'asd' );
+ values(7,'test1 title 7', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 5, 0,5, 'asd' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(8,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 10, 0,5, 'asd' );
+ values(8,'test1 title 8', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 10, 0,5, 'asd' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(9,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 11, 0,5, 'asd' );
+ values(9,'test1 title 9' , 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 11, 0,5, 'asd' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(10,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'asd' );
+ values(10,'test1 title 10', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'asd' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(11,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
+ values(11,'test1 title 11', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(12,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
+ values(12,'test1 title 12', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(13,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
+ values(13,'test1 title 13', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(14,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
+ values(14,'test1 title 14', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(15,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
+ values(15,'test1 title 15', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'pyj' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(16,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 3, 0,5, 'chs' );
+ values(16,'test1 title 16', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 3, 0,5, 'chs' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(17,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 5, 0,5, 'chs' );
+ values(17,'test1 title 17', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 5, 0,5, 'chs' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(18,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 10, 0,5, 'chs' );
+ values(18,'test1 title 18', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 10, 0,5, 'chs' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(19,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 11, 0,5, 'chs' );
+ values(19,'test1 title 19', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 11, 0,5, 'chs' );
 
 insert into `boardContent` (`contentSerialNumber`, `title` , `classNumber`, `content`, `file`, `writeTime`, `likeCount`,`rollBackFlag`, `replyLimit`, `id`)
- values(20,'test1 title', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'chs' );
+ values(20,'test1 title 20', 0, 'test1 content', 'aaa', '2022-05-14 00:00:00', 0, 0,5, 'chs' );
 
 
 -- -----------------------------------------------------

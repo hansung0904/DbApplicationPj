@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class BoardContent {
-
     private int contentSerialNumber;
     private final String title;
     private final int classNumber;
@@ -19,10 +18,9 @@ public class BoardContent {
     private final int likeCount;
     private final int rollBackFlag;
     private final int replyLimit;
-    private final int rollBack;
     private final String id;
 
-    public BoardContent(int contentSerialNumber, String title, int classNumber, String content, String file, Timestamp writeTime, int likeCount, int rollBackFlag, int replyLimit, int rollBack, String id) {
+    public BoardContent(int contentSerialNumber, String title, int classNumber, String content, String file, Timestamp writeTime, int likeCount, int rollBackFlag, int replyLimit, String id) {
         this.contentSerialNumber = contentSerialNumber;
         this.title = title;
         this.classNumber = classNumber;
@@ -32,7 +30,6 @@ public class BoardContent {
         this.likeCount = likeCount;
         this.rollBackFlag = rollBackFlag;
         this.replyLimit = replyLimit;
-        this.rollBack = rollBack;
         this.id = id;
     }
 }

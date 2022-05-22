@@ -35,7 +35,7 @@ public class BoardController {
     @GetMapping(value = {"/boardList"})
     public String showBoardList(Model model) {
         List<BoardContent> boardContentList = boardContentService.getBoardContents();
-        model.addAttribute("boardContentList", boardContentList);
+        model.addAttribute("boardContentLists", boardContentList);
         return "index/boardList";
     }
 
@@ -49,32 +49,20 @@ public class BoardController {
 
     // 보드 글 수정
     @GetMapping("/boardModify/modify/{contentSerialNumber}")
-    public String modifyBoardContent(@PathVariable int contentSerialNumber,
-                                     HttpSession session,
-                                     Model model) {
+    public String modifyBoardContent() {
 
-        User user = (User) session.getAttribute("user");
-        if (user.getId().equals("admin")) {
-            return "index/error";
-        }
         return "index/boardModify";
     }
 
     @PostMapping("/boardModify/modify/{contentSerialNumber}")
-    public String modifyBoardContent(@RequestParam("title") String title,
+    public String modifyBoardContent(@PathVariable int contentSerialNumber,
+                                     @RequestParam("title") String title,
                                      @RequestParam("content") String content,
                                      HttpSession session,
                                      Model model) {
 
         User user = (User) session.getAttribute("user");
-        if (user.getId().equals("admin")) {
-            return "index/error";
-        } else {
-            // fixme
-//            BoardContent boardContent = new BoardContent();
-            BoardContent boardContent = null;
-            boardContentService.modifyBoardContentByUser(user.getId(), boardContent);
-        }
+        boardContentService.modifyBoardContentByUser(user.getId(), contentSerialNumber, title, content);
         return "index/boardList";
     }
 
@@ -84,8 +72,9 @@ public class BoardController {
                                      Model model) {
 
         User user = (User) session.getAttribute("user");
+        System.out.println("===" + user.getId());
         if (user.getId().equals("admin")) {
-            boardContentService.deleteBoardContentByAdmin(user.getId(), contentSerialNumber);
+            boardContentService.deleteBoardContentByAdmin(contentSerialNumber);
         } else {
             boardContentService.deleteBoardContentByUser(user.getId(), contentSerialNumber);
         }

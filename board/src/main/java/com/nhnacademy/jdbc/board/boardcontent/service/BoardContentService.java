@@ -15,13 +15,13 @@ public interface BoardContentService {
     List<BoardContent> getBoardContentsByTitle(String title);
 
     //글 작성자 수정
-    int modifyBoardContentByUser(String id, BoardContent boardContent);
+    int modifyBoardContentByUser(String id, int contentSerialNumber, String title, String content);
 
     // 글 작성자 삭제
     int deleteBoardContentByUser(String id, int contentSerialNumber);
 
     // 글 관리자 삭제
-    int deleteBoardContentByAdmin(String id, int contentSerialNumber);
+    int deleteBoardContentByAdmin(int contentSerialNumber);
 
     // 글 작성
     int writeBoardContent( BoardContent boardContent);

@@ -10,7 +10,7 @@
     </insert>
     <update id="modifyBoardContentByUser">
         update boardContent
-        set content=#{content}
+        set title=#{title}, content=#{content}
         where id = #{id}
           and contentSerialNumber = #{contentSerialNumber}
     </update>
@@ -35,21 +35,20 @@
     <update id="deleteBoardContentByUser">
         update boardContent
         set rollBackFlag = 1
-        where id = #{id}
-          and contentSerialNumber = #{contentSerialNumber}
+        where id = '${id}'
+        and contentSerialNumber = #{contentSerialNumber}
     </update>
     <delete id="deleteBoardContentByAdmin">
         delete
         from boardContent
-        where id = #{id}
-          and contentSerialNumber = #{contentSerialNumber}
+        where contentSerialNumber = #{contentSerialNumber}
 
     </delete>
 
     <select id="getBoardContents" resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
-        select *
-        from boardContent;
+        select * from boardContent
     </select>
+
     <select id="getBoardContentsByTitle"
             resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
         select *
@@ -59,6 +58,6 @@
     <select id="getBoardContentsPaging"
             resultType="com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent">
         SELECT *
-        FROM boardContent orders LIMIT 20;
+        FROM boardContent orders LIMIT 20
     </select>
 </mapper>

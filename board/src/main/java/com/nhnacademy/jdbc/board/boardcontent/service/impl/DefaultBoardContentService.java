@@ -27,8 +27,8 @@ public class DefaultBoardContentService implements BoardContentService {
     }
 
     @Override
-    public int modifyBoardContentByUser(String id, BoardContent boardContent) {
-        return boardContentMapper.modifyBoardContentByUser(id, boardContent);
+    public int modifyBoardContentByUser(String id, int contentSerialNumber, String title, String content) {
+        return boardContentMapper.modifyBoardContentByUser(id, contentSerialNumber, title, content);
     }
 
     @Override
@@ -37,8 +37,8 @@ public class DefaultBoardContentService implements BoardContentService {
     }
 
     @Override
-    public int deleteBoardContentByAdmin(String id, int contentSerialNumber) {
-        return boardContentMapper.deleteBoardContentByAdmin(id, contentSerialNumber);
+    public int deleteBoardContentByAdmin(int contentSerialNumber) {
+        return boardContentMapper.deleteBoardContentByAdmin(contentSerialNumber);
     }
 
     @Override

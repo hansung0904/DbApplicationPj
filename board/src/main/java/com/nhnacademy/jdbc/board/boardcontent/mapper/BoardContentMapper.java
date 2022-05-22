@@ -2,6 +2,7 @@ package com.nhnacademy.jdbc.board.boardcontent.mapper;
 
 import com.nhnacademy.jdbc.board.boardcontent.domain.BoardContent;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,13 +18,13 @@ public interface BoardContentMapper {
     List<BoardContent> getBoardContentsByTitle(String title);
 
     //글 작성자 수정
-    int modifyBoardContentByUser(String id, BoardContent boardContent);
+    int modifyBoardContentByUser(String id, int contentSerialNumber, String title, String content);
 
     // 글 작성자 삭제
-    int deleteBoardContentByUser(String id, int  contentSerialNumber);
+    int deleteBoardContentByUser(@Param("id") String id, @Param("contentSerialNumber") int contentSerialNumber);
 
     // 글 관리자 삭제
-    int deleteBoardContentByAdmin(String id, int  contentSerialNumber);
+    int deleteBoardContentByAdmin(int contentSerialNumber);
 
     // 글 작성
     int writeBoardContent(BoardContent boardContent);
